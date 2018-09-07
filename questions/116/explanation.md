@@ -8,6 +8,6 @@ In this example, all three functions are called once with an lvalue and once wit
 -For the second example, `move(x)` obtains an rvalue reference, and `y(int&&)`is called for both cases. Output: `22`.
 -For the third example, `forward<T>(x)` obtains an lvalue reference when `x` is an lvalue reference, and an rvalue reference when `x` is an rvalue reference, resulting in first a call to `y(int&)`and then a call to `y(int&&)`. Output: `12`.
 
-Note [1]: [dcl.ref ]§8.3.2¶6 in the standard: "If a typedef-name (§10.1.3, §17.1) or a decltype-specifier (§10.1.7.2) denotes a type `TR` that is a reference to a type `T`, an attempt to create the type “lvalue reference to cv `TR`” creates the type “lvalue reference to `T`”, while an attempt to create the type “rvalue reference to cv `TR`” creates the type `TR`." The example at the end of that paragraph is is worth a look. 
+Note [1]: [dcl.ref]§11.3.2¶6 in the standard: "If a typedef-name (§10.1.3, §17.1) or a decltype-specifier (§10.1.7.2) denotes a type `TR` that is a reference to a type `T`, an attempt to create the type “lvalue reference to cv `TR`” creates the type “lvalue reference to `T`”, while an attempt to create the type “rvalue reference to cv `TR`” creates the type `TR`." The example at the end of that paragraph is is worth a look. 
 
 Note from the contributor: This demonstrates Scott Meyers's advice that use std::forward for forwarding references, and std::move for rvalue references.
