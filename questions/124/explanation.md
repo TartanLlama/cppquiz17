@@ -1,4 +1,4 @@
-[temp.param]§14.1¶14 in the C++11 standard says: "A template-parameter of a template template-parameter is permitted to have a default template-argument.
+[temp.param]§17.1¶14 in the C++11 standard says: "A template-parameter of a template template-parameter is permitted to have a default template-argument.
 When such default arguments are specified, they apply to the template template-parameter in the scope of
 the template template-parameter."
 
