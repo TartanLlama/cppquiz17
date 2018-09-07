@@ -1,8 +1,8 @@
 The compiler tries to deduce `T` for every parameter and checks if the deduced types match. Because a lambda is of completely different type, it cannot be matched against `std::function<void(T)>` and the deduction process fails.
 This problem can be fixed by turning the first parameter into a so-called nondeduced context.
 
-[temp.deduct.type]§14.8.2.5¶5 in the standard:
-"The nondeduced contexts are:
+[temp.deduct.type]§17.8.2.5¶5 in the standard:
+"The non-deduced contexts are:
 
 - The nested-name-specifier of a type that was specified using a qualified-id.
 - (...)
@@ -11,17 +11,17 @@ When a type name is specified in a way that includes a nondeduced context, all o
 
 In particular, a helper struct template that typedefs the template parameter can be used:
     template <typename T>
-    struct identity
+    struct type_identity
     {
         typedef T type;
     };
 This helper struct can then turn `std::function<void(T)>` into a nondeduced context as shown in the standard:
     template <typename T>
-    void call_with(typename identity<std::function<void(T)>>::type f, T val)
+    void call_with(typename type_identity<std::function<void(T)>>::type f, T val)
     {
         f(val);
     }
-Note that `identity` is in namespace `std` in some stdlib implementations, but it not actually part of the C++11 standard.
+`std::type_identity` is in the C++20 standard, but not C++17.
 
 The problem can also be solved in a less general way (at each call site) by explicitly specifying the template argument:
 
