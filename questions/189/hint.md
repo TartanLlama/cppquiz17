@@ -1,0 +1,1 @@
+Can the implementation use the dynamic type of an object when determining the default argument to a function?

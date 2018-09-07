@@ -1,0 +1,1 @@
+`nullptr` is a "null pointer constant", not actually a pointer.

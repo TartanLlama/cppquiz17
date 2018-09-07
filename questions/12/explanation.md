@@ -1,0 +1,1 @@
+Since `a` is a static local variable, it is automatically initialized to its default value, `0`. This would not have happened if we removed the keyword `static`, making it a non-static local variable.
