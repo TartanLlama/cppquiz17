@@ -1,5 +1,5 @@
-[basic.start.init]§3.6.2¶4 in the standard:
-"It is implementation-defined whether the dynamic initialization of a non-local variable with static storage duration is done before the first statement of main. If the initialization is deferred to some point in time after the first statement of main, it shall occur before the first odr-use (3.2) of any function or variable defined in the same translation unit as the variable to be initialized."
+[basic.start.dynamic]§6.6.3¶4 in the standard:
+"It is implementation-defined whether the dynamic initialization of a non-local non-inline variable with static storage duration is sequenced before the first statement of main or is deferred. If it is deferred, it strongly happens before any non-initialization odr-use of any non-inline function or non-inline variable defined in the same translation unit as the variable to be initialized."
 
 Since `A()` is not `constexpr`, the initialization of `a` is dynamic. There are two possibilities:
 - `a` is initialized before `main()` is called, i.e. before `b` is initialized.
